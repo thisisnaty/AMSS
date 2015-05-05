@@ -38,11 +38,10 @@ public class EditorEnJefe {
     //result of query
     ResultSet rs;
     
-    EditorEnJefe (Conexion conn) {
+    public EditorEnJefe (Conexion conn) {
         this.conn = conn;
     }
     
-    //wat is dis
     void tiempoEmpleado() {
         
     }

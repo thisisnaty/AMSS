@@ -78,7 +78,6 @@ public class Articulo {
             pst.setBoolean(6,autorizado);
             //executes query
             pst.executeUpdate();
-            
         }
         //error in database
         catch (SQLException ex){
