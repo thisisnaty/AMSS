@@ -1,4 +1,4 @@
-
+package Entities;
 import java.util.Date;
 import java.util.List;
 
@@ -22,4 +22,26 @@ public class Autor {
     private String tipo;
     private List<Articulo> articulosRevisados;
     private List<Orden> ordenes; 
+    
+    public Autor() {
+        this.idAutor = null;
+        this.nombreCompleto = null;
+        this.fechaNacimiento = null;
+        this.sexo = '0';
+        this.corporacion = null;
+        this.permiso = null;
+        this.tipo = null;
+    }
+
+    public Autor(String idAutor, String nombreCompleto, Date fechaNacimiento, char sexo, String corporacion, String permiso, String tipo) {
+        this.idAutor = idAutor;
+        this.nombreCompleto = nombreCompleto;
+        this.fechaNacimiento = fechaNacimiento;
+        this.sexo = sexo;
+        this.corporacion = corporacion;
+        this.permiso = permiso;
+        this.tipo = tipo;
+    }
+    
+    
 }

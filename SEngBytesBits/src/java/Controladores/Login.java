@@ -5,10 +5,19 @@
  */
 package Controladores;
 
+
 /**
  *
  * @author rrs94
  */
+
 public class Login {
+    private transient Conexion conexion;
+    Entities.EditorEnJefe admin;
+    
+    Login() {
+        
+    }
+    
     
 }

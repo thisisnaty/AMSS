@@ -1,11 +1,16 @@
+package Entities;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-import java.util.Date;
+import Controladores.Conexion;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +24,87 @@ public class Revista {
     private int numeroImpresiones;
     private List<Articulo> articulos;
     private CartaEditor carta;
-    private List<Orden> ordenes;  
+    private List<Orden> ordenes;
+    /*SQL connection global variables*/
+    //connection variable
+    private transient Conexion conn;
+    //prepare statement for query
+    PreparedStatement pst;
+    //result of query
+    ResultSet rs;
+    
+    public Revista(Conexion conn) {
+        this.conn = conn;
+    }
+    
+    public Revista() {
+        this.nombre = null;
+        this.idRevista = null;
+        this.fechaPublicacion = null;
+        this.numeroImpresiones = 0;
+        this.articulos = null;
+        this.carta = null;
+        this.ordenes = null;
+    }
+
+    public Revista(String nombre, String idRevista, Date fechaPublicacion, int numeroImpresiones) {
+        this.nombre = nombre;
+        this.idRevista = idRevista;
+        this.fechaPublicacion = fechaPublicacion;
+        this.numeroImpresiones = numeroImpresiones;
+    }
+    
+    int cantidadLectores() {
+        try {
+            String sql = "SELECT COUNT(DISTINCT idSuscriptor) FROM Orden WHERE idRevista=?";
+            conn.stmt.executeUpdate(sql);
+            pst.setString(1, idRevista);
+            rs = pst.executeQuery();
+            return rs.getInt(1);
+        }
+        //error in database
+        catch (SQLException ex){
+            //displays error
+            JOptionPane.showMessageDialog(null,ex);
+            return -1;
+        }
+    }
+    
+    int cantidadImpresiones() {
+        try {
+            String sql = "SELECT numeroImpresiones FROM Revista WHERE idRevista=?";
+            conn.stmt.executeUpdate(sql);
+            pst.setString(1, idRevista);
+            rs = pst.executeQuery();
+            return rs.getInt("numeroImpresiones");
+        }
+        //error in database
+        catch (SQLException ex){
+            //displays error
+            JOptionPane.showMessageDialog(null,ex);
+            return -1;
+        }
+    }
+    
+    int cantidadArticulos() {
+        try {
+            String sql = "SELECT COUNT* FROM Articulo WHERE idRevista=?";
+            conn.stmt.executeUpdate(sql);
+            pst.setString(1, idRevista);
+            rs = pst.executeQuery();
+            return rs.getInt(1);
+        }
+        //error in database
+        catch (SQLException ex){
+            //displays error
+            JOptionPane.showMessageDialog(null,ex);
+            return -1;
+        }
+    }
+    
+    //wat is dis
+    void editorEnJefe() {
+        
+    }
 }
 
