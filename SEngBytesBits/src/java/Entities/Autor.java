@@ -20,8 +20,8 @@ public class Autor {
     private String corporacion;
     private String permiso;
     private String tipo;
-    private List<Articulo> articulosRevisados;
-    private List<Orden> ordenes; 
+    private String username;
+    private String password;
     
     public Autor() {
         this.idAutor = null;

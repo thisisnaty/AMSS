@@ -28,9 +28,10 @@ public class Articulo {
     private Date fechaPublicacion;
     private boolean publicado;
     private boolean autorizado;
-    private Juez juezSupervisor;
-    private Revista revistaPertenece;
-    private List<Autor> autores;
+    //private Juez juezSupervisor;
+    private String idJuezSupervisor;
+    //private Revista revistaPertenece;
+    private String idrevistaPertenece;
     /*SQL connection global variables*/
     //connection variable
     private transient Conexion conn;
@@ -50,36 +51,34 @@ public class Articulo {
         this.fechaPublicacion = null;
         this.publicado = false;
         this.autorizado = false;
-        this.juezSupervisor = null;
-        this.revistaPertenece = null;
-        this.autores = null;
     }
     
     public Articulo(String idArticulo, String titulo, String tema, Date fechaPublicacion,
-            boolean publicado, boolean autorizado, Juez juezSupervisor, Revista revistaPertenece,
-            List<Autor> autores) {
+            boolean publicado, boolean autorizado) {
         this.idArticulo = idArticulo;
         this.titulo = titulo;
         this.tema = tema;
         this.fechaPublicacion = fechaPublicacion;
         this.publicado = publicado;
         this.autorizado = autorizado;
-        this.juezSupervisor = juezSupervisor;
-        this.revistaPertenece = revistaPertenece;
-        this.autores = autores;
     }
     
     void crearArticulo() {
          //SQL query
-        String sql = "INSERT INTO WishList (productId, userId)" +
-                     "VALUES(?, ?);";
+        String sql = "INSERT INTO Articulo (idArticulo, titulo, tema, fechaPublicacion, publicado, autorizado)" +
+                     "VALUES(?, ?, ?, ?, ?, ?);";
         try {
             //make sql script
-            pst = conn.prepareStatement(sql);
-            pst.setString(1,Integer.toString(productKey)); 
-            pst.setString(2,Integer.toString(currentUser.userId)); 
+            conn.stmt.executeUpdate(sql);
+            pst.setString(1,idArticulo);
+            pst.setString(2,titulo);
+            pst.setString(3,tema);
+            pst.setDate(4, fechaPublicacion);
+            pst.setBoolean(5,publicado);
+            pst.setBoolean(6,autorizado);
             //executes query
             pst.executeUpdate();
+            
         }
         //error in database
         catch (SQLException ex){
@@ -89,6 +88,7 @@ public class Articulo {
     }
     
     Juez getJuez() {
+        Juez juezSupervisor;
         try {
             String sql = "SELECT idJuez FROM Articulo WHERE idArticulo=?";
             conn.stmt.executeUpdate(sql);
@@ -116,6 +116,7 @@ public class Articulo {
     }
     
     Revista getRevista() {
+        Revista revistaPertenece;
         try {
             String sql = "SELECT idRevista FROM Articulo WHERE idArticulo=?";
             conn.stmt.executeUpdate(sql);
@@ -142,6 +143,123 @@ public class Articulo {
     }
     
     List<Autor> getAutores() {
+        List<Autor> autores = new List<Autor>() {
+
+            @Override
+            public int size() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean isEmpty() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean contains(Object o) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Iterator<Autor> iterator() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Object[] toArray() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public <T> T[] toArray(T[] a) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean add(Autor e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean remove(Object o) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean containsAll(Collection<?> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean addAll(Collection<? extends Autor> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean addAll(int index, Collection<? extends Autor> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean removeAll(Collection<?> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean retainAll(Collection<?> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void clear() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Autor get(int index) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Autor set(int index, Autor element) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void add(int index, Autor element) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Autor remove(int index) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public int indexOf(Object o) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public int lastIndexOf(Object o) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public ListIterator<Autor> listIterator() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public ListIterator<Autor> listIterator(int index) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public List<Autor> subList(int fromIndex, int toIndex) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         try {
             String sql = "SELECT idAutor FROM ArticuloAutor WHERE idArticulo=?";
             conn.stmt.executeUpdate(sql);

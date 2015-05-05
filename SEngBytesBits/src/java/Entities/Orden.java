@@ -18,8 +18,8 @@ public class Orden {
     private double descuento;
     private int cantidad;
     private Date fechaExpiracion;
-    private Suscriptor suscriptorDeOrden;
-    private Autor suscriptorAutor;
-    private Revista revistaOrdenada;    
-    private Pago pagoOrden;
+    private String idSuscriptor;
+    private String idAutor;
+    private String idRevista;    
+    private String idPago;
 }

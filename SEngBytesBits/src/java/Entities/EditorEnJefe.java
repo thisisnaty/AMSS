@@ -30,8 +30,6 @@ public class EditorEnJefe {
     private Date fechaNacimiento;
     private Date fechaEntrada;
     private char sexo;
-    private List<CartaEditor> cartas;
-    private List<Juez> juecesDeSupervisor;
     /*SQL connection global variables*/
     //connection variable
     private transient Conexion conn;
@@ -55,6 +53,123 @@ public class EditorEnJefe {
     }
     
     List<CartaEditor> cartasEscritas() {
+        List<CartaEditor> cartas = new List<CartaEditor>() {
+
+            @Override
+            public int size() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean isEmpty() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean contains(Object o) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Iterator<CartaEditor> iterator() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Object[] toArray() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public <T> T[] toArray(T[] a) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean add(CartaEditor e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean remove(Object o) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean containsAll(Collection<?> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean addAll(Collection<? extends CartaEditor> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean addAll(int index, Collection<? extends CartaEditor> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean removeAll(Collection<?> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public boolean retainAll(Collection<?> c) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void clear() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public CartaEditor get(int index) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public CartaEditor set(int index, CartaEditor element) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void add(int index, CartaEditor element) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public CartaEditor remove(int index) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public int indexOf(Object o) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public int lastIndexOf(Object o) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public ListIterator<CartaEditor> listIterator() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public ListIterator<CartaEditor> listIterator(int index) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public List<CartaEditor> subList(int fromIndex, int toIndex) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         try {
             String sql = "SELECT * FROM CartaEditor WHERE idEditor=?";
             //make sql script
@@ -186,7 +301,7 @@ public class EditorEnJefe {
                 //adds first category
                 CartaEditor aux = new CartaEditor(rs.getString("idCarta"), rs.getString("titulo"),
                         rs.getDate("fechaPublicacion"), rs.getString("tema"), rs.getBoolean("publicado"),
-                        rs.getString("idEditor"), rs.getString("idRevista"));
+                        rs.getString("idEditor"));
                 
                 cartas.add(aux);
                 //while there are more categories
@@ -194,7 +309,7 @@ public class EditorEnJefe {
                     //found a new category
                     aux = new CartaEditor(rs.getString("idCarta"), rs.getString("titulo"),
                             rs.getDate("fechaPublicacion"), rs.getString("tema"), rs.getBoolean("publicado"),
-                            rs.getString("idEditor"), rs.getString("idRevista"));
+                            rs.getString("idEditor"));
                     
                     cartas.add(aux);
                 }
@@ -344,8 +459,6 @@ public class EditorEnJefe {
             fechaNacimiento = rs.getDate("fechaNacimiento");
             fechaEntrada = rs.getDate("fechaEntrada");
             return true;
-            //    cartas;
-            //    juecesDeSupervisor;
         }
         //error in database
         catch (SQLException ex){

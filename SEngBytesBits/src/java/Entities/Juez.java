@@ -18,9 +18,7 @@ public class Juez {
     private Date fechaNacimiento;
     private Date fechaEntrada;
     private char sexo;
-    private List<Articulo> articulosRevisados;
-    private EditorEnJefe editorSupervisor;
-    private List<Orden> ordenes; 
+    private String idEditorSupervisor;
     
     public Juez () {
         this.idJuez = null;
@@ -28,9 +26,7 @@ public class Juez {
         this.fechaNacimiento = null;
         this.fechaEntrada = null;
         this.sexo = '0';
-        this.articulosRevisados = null;
-        this.editorSupervisor = null;
-        this.ordenes = null;
+        this.idEditorSupervisor = null;
     }
 
     public Juez(String idJuez, String nombreCompleto, Date fechaNacimiento, Date fechaEntrada, 

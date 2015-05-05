@@ -15,5 +15,4 @@ public class Pago {
     private String idPago;
     private Date fechaPago;
     private double fecha;
-    private Orden ordenPagada;
 }

@@ -30,7 +30,6 @@ public class Suscriptor {
     private String direccion;
     private String tarjetaCredito;
     private int clave;
-    private List<Orden> ordenes;
      /*SQL connection global variables*/
     //connection variable
     private final transient Conexion conn;

@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,9 +21,7 @@ public class Revista {
     private String idRevista;
     private Date fechaPublicacion;
     private int numeroImpresiones;
-    private List<Articulo> articulos;
-    private CartaEditor carta;
-    private List<Orden> ordenes;
+    private String idCarta;
     /*SQL connection global variables*/
     //connection variable
     private transient Conexion conn;
@@ -42,9 +39,6 @@ public class Revista {
         this.idRevista = null;
         this.fechaPublicacion = null;
         this.numeroImpresiones = 0;
-        this.articulos = null;
-        this.carta = null;
-        this.ordenes = null;
     }
 
     public Revista(String nombre, String idRevista, Date fechaPublicacion, int numeroImpresiones) {

@@ -25,7 +25,6 @@ public class CartaEditor {
     private String tema;
     private boolean publicado;
     private String idEditor;
-    private String idRevista;
     /*SQL connection global variables*/
     //connection variable
     private transient Conexion conn;
@@ -45,25 +44,23 @@ public class CartaEditor {
         this.tema = null;
         this.publicado = false;
         this.idEditor = null;
-        this.idRevista = null;
     }
     
-    public CartaEditor(String idCarta, String titulo, Date fechaPublicacion, String tema, boolean publicado, String idEditor, String idRevista) {
+    public CartaEditor(String idCarta, String titulo, Date fechaPublicacion, String tema, boolean publicado, String idEditor) {
         this.idCarta = idCarta;
         this.titulo = titulo;
         this.fechaPublicacion = fechaPublicacion;
         this.tema = tema;
         this.publicado = publicado;
         this.idEditor = idEditor;
-        this.idRevista = idRevista;
     }
     
     Revista getRevista() {
         try {
-            String sql = "SELECT * FROM Revista WHERE idRevista = ?";
+            String sql = "SELECT * FROM Revista WHERE idCarta=?";
             //make sql script
             conn.stmt.executeUpdate(sql);
-            pst.setString(1,idRevista);
+            pst.setString(1,idCarta);
             //executes query
             rs = pst.executeQuery();
             if(rs.next()){
