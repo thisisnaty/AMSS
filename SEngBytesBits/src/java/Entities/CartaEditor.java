@@ -92,7 +92,23 @@ public class CartaEditor {
     }
     
     //wat is dis
-    void getEditor() {
-        
+    String getEditor() {
+         try {
+            String sql = "SELECT * FROM EditorEnJefe WHERE idEditor = ?";
+            //make sql script
+            conn.stmt.executeUpdate(sql);
+            pst.setString(1,idEditor);
+            //executes query
+            rs = pst.executeQuery();
+            String editor = rs.getString("nombreCompleto");
+            return editor;
+        }
+        //error in database
+        catch (SQLException ex){
+            //displays error
+            JOptionPane.showMessageDialog(null,ex);
+            String aux="error";
+            return aux;
+        }
     }
 }

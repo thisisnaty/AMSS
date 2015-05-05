@@ -5,10 +5,18 @@
  */
 package Controladores;
 
+import Entities.Articulo;
+import Controladores.Conexion;
+
 /**
  *
  * @author rrs94
  */
 public class CrearArticulo {
+    Articulo articulo;
+    Conexion conn;
+    public CrearArticulo() {
+        articulo = new Articulo (conn);
+    }
     
 }

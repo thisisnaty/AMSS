@@ -69,6 +69,25 @@ public class Articulo {
         this.autores = autores;
     }
     
+    void crearArticulo() {
+         //SQL query
+        String sql = "INSERT INTO WishList (productId, userId)" +
+                     "VALUES(?, ?);";
+        try {
+            //make sql script
+            pst = conn.prepareStatement(sql);
+            pst.setString(1,Integer.toString(productKey)); 
+            pst.setString(2,Integer.toString(currentUser.userId)); 
+            //executes query
+            pst.executeUpdate();
+        }
+        //error in database
+        catch (SQLException ex){
+            //displays error
+            JOptionPane.showMessageDialog(null,ex);
+        }
+    }
+    
     Juez getJuez() {
         try {
             String sql = "SELECT idJuez FROM Articulo WHERE idArticulo=?";
