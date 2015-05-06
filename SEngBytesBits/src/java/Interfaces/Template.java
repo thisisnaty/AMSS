@@ -27,10 +27,8 @@ public class Template {
         out.println("</head>");
         out.println("<body background=\"back1.jpg\">");
         out.println("<div class='nav'>\n" +
-                "      <div class='container'>\n" +
-                "        <ul class='pull-left'>\n" +
+                "      <div align=\"center\">\n" +
                 "          <li><p>SEng Bytes & Bits</p></li>\n" +
-                "        </ul>\n" +
                 "      </div>\n" +
                 "    </div>");
     }
