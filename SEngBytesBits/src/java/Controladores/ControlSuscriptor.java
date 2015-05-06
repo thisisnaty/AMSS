@@ -19,7 +19,7 @@ public class ControlSuscriptor {
     private transient Conexion conexion;
     
      //Prepara la conexión que comparte con las entidades
-    ControlSuscriptor(){
+    public ControlSuscriptor(){
       conexion = new Conexion();     
       suscriptor = new Suscriptor(conexion);
     }

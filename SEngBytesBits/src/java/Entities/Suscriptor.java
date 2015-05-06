@@ -44,24 +44,31 @@ public class Suscriptor {
 
     public boolean validateLogin(String u, String p) {
         try {
+            PreparedStatement pst;
             String sql = "SELECT * FROM Suscriptor WHERE username=? AND password=?";
-            conn.stmt.executeUpdate(sql);
+            pst = conn.conn.prepareStatement(sql);
             pst.setString(1, u);
             pst.setString(2, p);
             rs = pst.executeQuery();
-            username = rs.getString("username");
-            password = rs.getString("password");
+            if(rs.next()){
+                
+            }
             idSuscriptor = rs.getString("idSuscriptor");
             nombreCompleto = rs.getString("nombreCompleto");
-            sexo = rs.getString("sexo").charAt(0);
+            compania = rs.getString("corporacion");
             fechaNacimiento = rs.getDate("fechaNacimiento");
+            password = rs.getString("password");
             fechaEntrada = rs.getDate("fechaEntrada");
+            fechaExpiracion = rs.getDate("fechaExpiracion");
+            sexo = rs.getString("sexo").charAt(0);
+            direccion = rs.getString("direccion");
+            tarjetaCredito = rs.getString("tarjetaCredito");
+            clave = rs.getInt("clave");
             return true;
         }
         //error in database
         catch (SQLException ex){
             //displays error
-            JOptionPane.showMessageDialog(null,ex);
             return false;
         }
     }

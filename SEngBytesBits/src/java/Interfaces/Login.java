@@ -58,13 +58,14 @@ public class Login extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        response.sendRedirect("Articulos");
-//        ControlSuscriptor control = new ControlSuscriptor();
-//        if (control.login(username, password)) {
-//            response.sendRedirect("Articulos");
-//        } else {
-//            response.sendRedirect("Login");
-//        }      
+        //response.sendRedirect("Articulos");
+        ControlSuscriptor userLogin = new ControlSuscriptor();
+        
+        if (userLogin.login(username, password)) {
+            response.sendRedirect("Articulos");
+        } else {
+            response.sendRedirect("Login");
+        }      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
