@@ -8,6 +8,10 @@
         <servlet-name>Template</servlet-name>
         <servlet-class>Interfaces.Template</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Articulos</servlet-name>
+        <servlet-class>Interfaces.Articulos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>Template</servlet-name>
         <url-pattern>/Template</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Articulos</servlet-name>
+        <url-pattern>/Articulos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

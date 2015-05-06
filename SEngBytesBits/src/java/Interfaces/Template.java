@@ -25,7 +25,7 @@ public class Template {
         out.println("<script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>");
         out.println("<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>");
         out.println("</head>");
-        out.println("<body>");
+        out.println("<body background=\"back1.jpg\">");
         out.println("<div class='nav'>\n" +
                 "      <div class='container'>\n" +
                 "        <ul class='pull-left'>\n" +
@@ -33,6 +33,12 @@ public class Template {
                 "        </ul>\n" +
                 "      </div>\n" +
                 "    </div>");
+    }
+    public static void footer(PrintWriter out) {
+        out.println("</div>");
+        out.println("</div>");
+        out.println("</body>");
+        out.println("</html>");
     }
 }
 

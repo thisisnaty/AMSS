@@ -38,16 +38,16 @@ public class Suscriptor {
     //result of query
     ResultSet rs;
     
-    Suscriptor (Conexion conn) {
+    public Suscriptor (Conexion conn) {
         this.conn = conn;
     }
 
-    boolean validateLogin() {
+    public boolean validateLogin(String u, String p) {
         try {
             String sql = "SELECT * FROM Suscriptor WHERE username=? AND password=?";
             conn.stmt.executeUpdate(sql);
-            pst.setString(1, username);
-            pst.setString(2, password);
+            pst.setString(1, u);
+            pst.setString(2, p);
             rs = pst.executeQuery();
             username = rs.getString("username");
             password = rs.getString("password");
