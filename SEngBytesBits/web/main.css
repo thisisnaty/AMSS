@@ -21,3 +21,8 @@ and open the template in the editor.
 	background-image: url(back1.jpg);
 	background-repeat: no-repeat;
 }
+
+.wrapper {
+    text-align: center;
+}
+
