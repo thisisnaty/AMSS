@@ -22,7 +22,7 @@ public class Conexion {
         stmt = (Statement) conn.createStatement();     
       }
       catch (Exception e) { 
-          JOptionPane.showMessageDialog(null,e);
+           JOptionPane.showMessageDialog(null,e);
            System.out.println ("Cannot connect to database server"); 
       }
    }   

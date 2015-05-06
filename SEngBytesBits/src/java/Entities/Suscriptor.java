@@ -50,25 +50,30 @@ public class Suscriptor {
             pst.setString(1, u);
             pst.setString(2, p);
             rs = pst.executeQuery();
+            //encontro usuario
             if(rs.next()){
-                
+                idSuscriptor = rs.getString("idSuscriptor");
+                nombreCompleto = rs.getString("nombreCompleto");
+                compania = rs.getString("corporacion");
+                fechaNacimiento = rs.getDate("fechaNacimiento");
+                password = rs.getString("password");
+                fechaEntrada = rs.getDate("fechaEntrada");
+                fechaExpiracion = rs.getDate("fechaExpiracion");
+                sexo = rs.getString("sexo").charAt(0);
+                direccion = rs.getString("direccion");
+                tarjetaCredito = rs.getString("tarjetaCredito");
+                clave = rs.getInt("clave");
+                return true;
             }
-            idSuscriptor = rs.getString("idSuscriptor");
-            nombreCompleto = rs.getString("nombreCompleto");
-            compania = rs.getString("corporacion");
-            fechaNacimiento = rs.getDate("fechaNacimiento");
-            password = rs.getString("password");
-            fechaEntrada = rs.getDate("fechaEntrada");
-            fechaExpiracion = rs.getDate("fechaExpiracion");
-            sexo = rs.getString("sexo").charAt(0);
-            direccion = rs.getString("direccion");
-            tarjetaCredito = rs.getString("tarjetaCredito");
-            clave = rs.getInt("clave");
-            return true;
+            //no encontro
+            else{
+                return false;
+            }
         }
         //error in database
         catch (SQLException ex){
             //displays error
+            JOptionPane.showMessageDialog(null,ex);
             return false;
         }
     }
