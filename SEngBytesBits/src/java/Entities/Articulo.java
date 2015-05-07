@@ -63,26 +63,30 @@ public class Articulo {
         this.autorizado = autorizado;
     }
     
-    void crearArticulo() {
+    boolean crearArticulo(String id, String tit, String tem, Date fechaP, boolean pub, boolean aut, String idR, String idJ) {
          //SQL query
-        String sql = "INSERT INTO Articulo (idArticulo, titulo, tema, fechaPublicacion, publicado, autorizado)" +
+        String sql = "INSERT INTO Articulo (idArticulo, titulo, tema, fechaPublicacion, publicado, autorizado, idRevista, idJuez)" +
                      "VALUES(?, ?, ?, ?, ?, ?);";
         try {
             //make sql script
-            conn.stmt.executeUpdate(sql);
-            pst.setString(1,idArticulo);
-            pst.setString(2,titulo);
-            pst.setString(3,tema);
-            pst.setDate(4, fechaPublicacion);
-            pst.setBoolean(5,publicado);
-            pst.setBoolean(6,autorizado);
+            pst = conn.conn.prepareStatement(sql);
+            pst.setString(1,id);
+            pst.setString(2,tit);
+            pst.setString(3,tem);
+            pst.setDate(4, fechaP);
+            pst.setBoolean(5,pub);
+            pst.setBoolean(6,aut);
+            pst.setString(5,idR);
+            pst.setString(6,idJ);
             //executes query
-            pst.executeUpdate();
+            pst.executeQuery();
+            return true;
         }
         //error in database
         catch (SQLException ex){
             //displays error
             JOptionPane.showMessageDialog(null,ex);
+            return false;
         }
     }
     

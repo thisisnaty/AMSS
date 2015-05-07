@@ -44,7 +44,6 @@ public class Suscriptor {
 
     public boolean validateLogin(String u, String p) {
         try {
-            PreparedStatement pst;
             String sql = "SELECT * FROM Suscriptor WHERE username=? AND password=?";
             pst = conn.conn.prepareStatement(sql);
             pst.setString(1, u);
