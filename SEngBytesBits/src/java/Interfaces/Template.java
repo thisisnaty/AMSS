@@ -26,11 +26,9 @@ public class Template {
         out.println("<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>");
         out.println("</head>");
         out.println("<body background=\"back1.jpg\">");
-        out.println("<div class='nav'>\n" +
-                "      <div align=\"center\">\n" +
-                "          <li><p>SEng Bytes & Bits</p></li>\n" +
-                "      </div>\n" +
-                "    </div>");
+        out.println("<div>\n" +
+"        <h2 align=\"center\" class='wrapper'><font size=\"10\">SEng Bytes & Bits</font></h2>\n" +
+"        </div>");
     }
     public static void footer(PrintWriter out) {
         out.println("</div>");
