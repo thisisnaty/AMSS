@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
             out.write("<form action='Login' method='POST'>");
             out.write("Nombre de Usuario<input type='text' name='username' class='form-control'><br>");
             out.write("Contraseña<input type='password' name='password' class='form-control'><br>");
-            out.write("<input type='submit' class='btn btn-primary btn-block' value='Ingresar'>");
+            out.write("<input type='submit' class='btn btn-primary btn-block' value='Login'>");
             out.write("</form>");
             out.write("</div>");
             
