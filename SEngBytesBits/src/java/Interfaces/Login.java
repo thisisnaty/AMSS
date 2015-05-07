@@ -62,6 +62,8 @@ public class Login extends HttpServlet {
         ControlSuscriptor userLogin = new ControlSuscriptor();
         
         if (userLogin.login(username, password)) {
+            HttpSession session = request.getSession();
+            session.setAttribute("suscriptor", userLogin);
             response.sendRedirect("MenuPrincipal.html");
         } else {
             response.sendRedirect("Login");

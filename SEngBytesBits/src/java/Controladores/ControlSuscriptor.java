@@ -24,6 +24,7 @@ public class ControlSuscriptor {
       suscriptor = new Suscriptor(conexion);
     }
     public boolean login (String username, String password){
+        
         return suscriptor.validateLogin(username, password);
     }
 
