@@ -66,21 +66,21 @@ public class TemplateMenu {
             "		<ul class=\"fan\">\n" +
             "			<li>" + title + "</li>\n" +
             "			<li><a href = \"VerArticulos\" STYLE= \"text-decoration:none\">Ver Articulos</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Ver Revistas</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Ver Suscriptores</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Ver Autores</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Analisis Revista</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Analisis Suscriptor</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Analisis Autor</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Buscar Autor</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Crear Suscriptor</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Buscar Articulo</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Votar por Articulo</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Crear Carta Editor</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Aprobar Juez</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Hacer Pedido</a></li>\n" +
-            "			<li><a href = \"http://www.google.com\" STYLE= \"text-decoration:none\">Administrar Pagos</a></li>\n" +
-            "		</ul>\n" +
+        "			<li><a href = \"VerRevistas\" STYLE= \"text-decoration:none\">Ver Revistas</a></li>\n" +
+        "			<li><a href = \"VerSuscriptores\" STYLE= \"text-decoration:none\">Ver Suscriptores</a></li>\n" +
+        "			<li><a href = \"VerAutores\" STYLE= \"text-decoration:none\">Ver Autores</a></li>\n" +
+        "			<li><a href = \"AnaRevista\" STYLE= \"text-decoration:none\">Analisis Revista</a></li>\n" +
+        "			<li><a href = \"AnaSuscriptor\" STYLE= \"text-decoration:none\">Analisis Suscriptor</a></li>\n" +
+        "			<li><a href = \"AnaAutor\" STYLE= \"text-decoration:none\">Analisis Autor</a></li>\n" +
+        "			<li><a href = \"BuscarAutor\" STYLE= \"text-decoration:none\">Buscar Autor</a></li>\n" +
+        "                       <li><a href = \"BuscarArticulo\" STYLE= \"text-decoration:none\">Buscar Articulo</a></li>\n" +
+        "			<li><a href = \"CrearSuscriptor\" STYLE= \"text-decoration:none\">Crear Suscriptor</a></li>\n" +
+        "                       <li><a href = \"CrearCarta\" STYLE= \"text-decoration:none\">Crear Carta Editor</a></li>\n" +
+        "			<li><a href = \"VotarArticulo\" STYLE= \"text-decoration:none\">Votar por Articulo</a></li>\n" +
+        "			<li><a href = \"AprobarJuez\" STYLE= \"text-decoration:none\">Aprobar Juez</a></li>\n" +
+        "			<li><a href = \"HacerPedido\" STYLE= \"text-decoration:none\">Hacer Pedido</a></li>\n" +
+        "			<li><a href = \"AdministrarPago\" STYLE= \"text-decoration:none\">Administrar Pagos</a></li>\n" +
+"		</ul>\n" +
             "\n" +
             "		<script src=\"stroll.js\"></script>\n" +
             "		<script>\n" +

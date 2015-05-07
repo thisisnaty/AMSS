@@ -8,15 +8,17 @@ package Interfaces;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author rrs94
+ * @author pescalante
  */
-public class Articulos extends HttpServlet {
+@WebServlet(name = "AnaRevista", urlPatterns = {"/AnaRevista"})
+public class AnaRevista extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,24 +34,17 @@ public class Articulos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            Template.header(out, "Login", request.getRequestURI());
+            TemplateMenu.header(out, "Analisis Revista", request.getRequestURI());
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Seng Bytes & Bits</title>");            
+            out.println("<title>Servlet AnaRevista</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Ver Articulos</h1>");
-            out.println("<h1>Ver Suscriptores</h1>");
-            out.println("<h1>Ver Revistas</h1>");
-            out.println("<h1>Votar por Articulo</h1>");
-            out.println("<h1>Crear carta Editor</h1>");
+            out.println("<h1 align=\"center\"><font size=\"6\">>Servlet AnaRevista at " + request.getContextPath() + "</font></h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);
-        }
-        try (PrintWriter out = response.getWriter()) {
-            Template.header(out, "Articulos", request.getRequestURI());
         }
     }
 

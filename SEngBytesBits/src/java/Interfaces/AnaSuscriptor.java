@@ -5,21 +5,20 @@
  */
 package Interfaces;
 
-import Controladores.ControlSuscriptor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.apache.jasper.tagplugins.jstl.core.Url;
 
 /**
  *
- * @author nataliagarcia
+ * @author pescalante
  */
-public class Login extends HttpServlet {
+@WebServlet(name = "AnaSuscriptor", urlPatterns = {"/AnaSuscriptor"})
+public class AnaSuscriptor extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,42 +29,23 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void getLogin(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Template.header(out, "Login", request.getRequestURI());
-            
-            out.write("<div class='container-fluid login-container'>");
-            out.write("<form action='Login' method='POST'>");
-            out.write("Nombre de Usuario<input type='text' name='username' class='form-control'><br>");
-            out.write("Contraseña<input type='password' name='password' class='form-control'><br>");
-            out.write("<input type='submit' class='btn btn-primary btn-block' value='Ingresar'>");
-            out.write("</form>");
-            out.write("</div>");
-            
+            /* TODO output your page here. You may use following sample code. */
+            TemplateMenu.header(out, "Analisis Suscriptor", request.getRequestURI());
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AnaSuscriptor</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1 align=\"center\"><font size=\"6\">>Servlet AnaSuscriptor at " + request.getContextPath() + "</font></h1>");
+            out.println("</body>");
+            out.println("</html>");
             Template.footer(out);
         }
-        try (PrintWriter out = response.getWriter()) {
-            Template.header(out, "Login", request.getRequestURI());
-        }
-    }
-    
-    protected void login(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        
-        //response.sendRedirect("Articulos");
-        ControlSuscriptor userLogin = new ControlSuscriptor();
-        
-        if (userLogin.login(username, password)) {
-            response.sendRedirect("MenuPrincipal.html");
-        } else {
-            response.sendRedirect("Login");
-        }      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -80,7 +60,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getLogin(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -94,7 +74,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        login(request, response);
+        processRequest(request, response);
     }
 
     /**
