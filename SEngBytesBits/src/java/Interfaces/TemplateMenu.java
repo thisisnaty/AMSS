@@ -23,11 +23,8 @@ public class TemplateMenu {
             "		\n" +
             "		<title>stroll.js - CSS3 Scroll Effects</title>\n" +
             "\n" +
-            "		<meta name=\"description\" content=\"A set of list scroll effects applied via CSS.\">\n" +
-            "		<meta name=\"author\" content=\"Hakim El Hattab\">\n" +
-            "		\n" +
-            "		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>\n" +
-            "		\n" +
+            "		<meta name=\"description\" content=\"AMSS Final project.\">\n" +
+            "		<meta name=\"author\" content=\"Natalia, Paulina & Ricardo\">\n" +
             "		<link rel=\"stylesheet\" href=\"example.css\">\n" +
             "		<link rel=\"stylesheet\" href=\"stroll.css\">\n" +
             "\n" +

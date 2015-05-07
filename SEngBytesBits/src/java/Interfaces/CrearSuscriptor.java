@@ -41,7 +41,7 @@ public class CrearSuscriptor extends HttpServlet {
             out.println("<title>Servlet CrearSuscriptor</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1 align=\"center\"><font size=\"6\">Servlet CrearSuscriptor at " + request.getContextPath() + "</font></h1>");
+            out.println("<h1>Servlet CrearSuscriptor at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);

@@ -41,7 +41,7 @@ public class VerRevistas extends HttpServlet {
             out.println("<title>Servlet VerRevistas</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1 align=\"center\"><font size=\"6\">Servlet VerRevistas at " + request.getContextPath() + "</font></h1>");
+            out.println("<h1>Servlet VerRevistas at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);

@@ -41,7 +41,7 @@ public class BuscarArticulo extends HttpServlet {
             out.println("<title>Servlet BuscarArticulo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1 align=\"center\"><font size=\"6\">Servlet BuscarArticulo at " + request.getContextPath() + "</font></h1>");
+            out.println("<h1>Servlet BuscarArticulo at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);
