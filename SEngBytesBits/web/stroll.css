@@ -1,0 +1,38 @@
+/*!
+ * stroll.js 1.2 - CSS scroll effects
+ * http://lab.hakim.se/scroll-effects
+ * MIT licensed
+ * 
+ * Copyright (C) 2012 Hakim El Hattab, http://hakim.se
+ */
+
+/**
+ * Fan styles
+ */
+.fan li {
+	-webkit-transition: all 600ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+	   -moz-transition: all 600ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+	    -ms-transition: all 600ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+	     -o-transition: all 600ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+	        transition: all 600ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+
+	-webkit-transform-origin: 0% 0%;
+	   -moz-transform-origin: 0% 0%;
+	    -ms-transform-origin: 0% 0%;
+	     -o-transform-origin: 0% 0%;
+	        transform-origin: 0% 0%;
+}
+	.fan li.past {
+		-webkit-transform: rotate( -60deg );
+		   -moz-transform: rotate( -60deg );
+		    -ms-transform: rotate( -60deg );
+		     -o-transform: rotate( -60deg );
+		        transform: rotate( -60deg );
+	}
+	.fan li.future {
+		-webkit-transform: rotate( 70deg );
+		   -moz-transform: rotate( 70deg );
+		    -ms-transform: rotate( 70deg );
+		     -o-transform: rotate( 70deg );
+		        transform: rotate( 70deg );
+	}

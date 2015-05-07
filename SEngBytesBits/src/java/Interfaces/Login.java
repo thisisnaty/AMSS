@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
         ControlSuscriptor userLogin = new ControlSuscriptor();
         
         if (userLogin.login(username, password)) {
-            response.sendRedirect("Articulos");
+            response.sendRedirect("Articulos.html");
         } else {
             response.sendRedirect("Login");
         }      
