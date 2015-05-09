@@ -43,7 +43,7 @@ public class VerRevistas extends HttpServlet {
             out.println("<title>Servlet VerRevistas</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet VerRevistas at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'> Servlet VerRevistas at " + request.getContextPath() + "</h1>");
             getRevistas(out);
             out.println("</body>");
             out.println("</html>");
@@ -53,7 +53,7 @@ public class VerRevistas extends HttpServlet {
     
     void getRevistas(PrintWriter out) {
         ControlRevista verRevista = new ControlRevista();
-        out.println("<table class = 'table1'>");
+        out.println("<table class = 'table1' style= 'float:right'>");
         int cont = 0;
         String[][] matString = verRevista.verRevistas();
         int size = matString.length;

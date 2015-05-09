@@ -76,4 +76,25 @@ public class Suscriptor {
             return false;
         }
     }
+
+    public boolean register(String username, String password, String nombre, String corp, java.sql.Date nacimiento, char sexo, String direccion, String tarjeta, int clave, java.sql.Date expiracion, java.sql.Date hoy) {
+        try {
+            String sql = "SELECT COUNT(idSuscriptor) as mycount FROM Suscriptor";
+            pst = conn.conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            int cuantosSuscriptores;
+            //encontro usuario
+            if(rs.next()){
+                cuantosSuscriptores = rs.getInt("mycount");
+                cuantosSuscriptores++;
+            }
+            return true;
+        }
+        //error in database
+        catch (SQLException ex){
+            //displays error
+            JOptionPane.showMessageDialog(null,ex);
+            return false;
+        }
+    }
 }

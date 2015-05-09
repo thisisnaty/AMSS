@@ -9,7 +9,9 @@ import Entities.Autor;
 import Entities.Juez;
 import Entities.Revista;
 import java.sql.Date;
+import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +22,7 @@ public class ControlArticulo {
     private transient Conexion conexion;
     
      //Prepara la conexión que comparte con las entidades
-    ControlArticulo(){
+    public ControlArticulo(){
       conexion = new Conexion();     
       articulo = new Articulo(conexion);
     }
@@ -30,6 +32,20 @@ public class ControlArticulo {
 //      articulo = new Articulo();
 //      articulo.crearArticulo(titulo, autor);
 //    }
+    
+    public String[][] verArticulos(){
+        LinkedList<String> lklArticulos = articulo.getArticulos();
+        int size = lklArticulos.size();
+        String[][] matArticulos = new String[size/6][6];
+        int cont = 0;
+        for (int i = 0; i < size/6; i++) {
+            for (int j = 0; j < 6; j++){
+                matArticulos[i][j] = lklArticulos.get(cont);
+                cont++;
+            }
+        }
+        return matArticulos;
+    }
 
 
 }

@@ -43,7 +43,7 @@ public class AnaRevista extends HttpServlet {
             out.println("<title>Servlet AnaRevista</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AnaRevista at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'>Servlet AnaRevista at " + request.getContextPath() + "</h1>");
             getAnalisis(out);
             out.println("</body>");
             out.println("</html>");

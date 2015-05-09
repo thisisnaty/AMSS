@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import Controladores.ControlArticulo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -38,16 +39,37 @@ public class VerArticulos extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            out.println("<link rel='stylesheet' href = 'main.css'>");
             out.println("<title>Servlet VerArticulos</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet VerArticulos at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'>Servlet VerArticulos at " + request.getContextPath() + "</h1>");
+            getArticulos(out);
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);
         }
     }
+    
+    void getArticulos(PrintWriter out) {
+        ControlArticulo verArticulo = new ControlArticulo();
+        out.println("<table class = 'table1' style= 'float:right'>");
+        int cont = 0;
+        String[][] matString = verArticulo.verArticulos();
+        int size = matString.length;
+        for (int i = 0; i < size; i++) {
+            out.println("<tr>");
+            for (int j = 0; j < 6; j++) {
+                out.println("<td>");
+                out.println(matString[i][j] + "<br>");
+                out.println("</td>");
+            }
+            out.println("</tr>");
+        }
+        out.println("</table>");
+    }
 
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

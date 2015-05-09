@@ -8,17 +8,15 @@ package Interfaces;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author pescalante
+ * @author rrs94
  */
-@WebServlet(name = "AnaAutor", urlPatterns = {"/AnaAutor"})
-public class AnaAutor extends HttpServlet {
+public class Articulos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,17 +32,22 @@ public class AnaAutor extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            TemplateMenu.header(out, "Analisis Autor", request.getRequestURI());
+            Template.header(out, "Login", request.getRequestURI());
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AnalisisAutor</title>");            
+            out.println("<title>Servlet Articulos</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1 style='text-align:right'>Servlet AnalisisAutor at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Articulos</h1>");
+            out.println("<h1>Articulo 1</h1>");
+            out.println("<h1>Articulo 2</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);
+        }
+        try (PrintWriter out = response.getWriter()) {
+            Template.header(out, "Articulos", request.getRequestURI());
         }
     }
 
