@@ -53,18 +53,18 @@ public class AnaRevista extends HttpServlet {
     
     void getAnalisis(PrintWriter out) {
         ControlRevista revistaAnalisis = new ControlRevista();
-        out.println("<table class = 'table1'>");
-        String[][] matString = revistaAnalisis.bigData();
-        int size = matString.length;
-        for (int i = 0; i < size; i++) {
-            out.println("<tr>");
-            for (int j = 0; j < 2; j++) {
-                out.println("<td>");
-                out.println(matString[i][j] + "<br>");
-                out.println("</td>");
-            }
-            out.println("</tr>");
-        }
+        out.println("<table class = 'table1' style= 'float:right'>");
+        String arr[] = revistaAnalisis.bigData();
+        out.println("<tr>");
+        out.println("<td>");
+        out.println(arr[0]);
+        out.println("</td>");
+        out.println("</tr>");
+        out.println("<tr>");
+        out.println("<td>");
+        out.println(arr[1]);
+        out.println("</td>");
+        out.println("</tr>");
         out.println("</table>");
     }
 

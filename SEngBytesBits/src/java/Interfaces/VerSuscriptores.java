@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import Controladores.ControlSuscriptor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -38,14 +39,34 @@ public class VerSuscriptores extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet VerSuscriptores</title>");            
+            out.println("<title>Servlet VerSuscriptores</title>");   
+            out.println("<link rel='stylesheet' href = 'main.css'>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1 style='text-align:right'>Servlet VerSuscriptores at " + request.getContextPath() + "</h1>");
+            getSuscriptores(out);
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);
         }
+    }
+    
+    void getSuscriptores(PrintWriter out) {
+        ControlSuscriptor verSusc = new ControlSuscriptor();
+        out.println("<table class = 'table1' style= 'float:right'>");
+        int cont = 0;
+        String[][] matString = verSusc.verSuscriptores();
+        int size = matString.length;
+        for (int i = 0; i < size; i++) {
+            out.println("<tr>");
+            for (int j = 0; j < 11; j++) {
+                out.println("<td>");
+                out.println(matString[i][j] + "<br>");
+                out.println("</td>");
+            }
+            out.println("</tr>");
+        }
+        out.println("</table>");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
