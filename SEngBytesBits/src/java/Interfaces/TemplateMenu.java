@@ -21,7 +21,7 @@ public class TemplateMenu {
             "	<head>\n" +
             "		<meta charset=\"utf-8\">\n" +
             "		\n" +
-            "		<title>stroll.js - CSS3 Scroll Effects</title>\n" +
+            "		<title>SengBB</title>\n" +
             "\n" +
             "		<meta name=\"description\" content=\"AMSS Final project.\">\n" +
             "		<meta name=\"author\" content=\"Natalia, Paulina & Ricardo\">\n" +

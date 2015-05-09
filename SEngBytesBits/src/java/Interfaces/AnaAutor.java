@@ -41,7 +41,7 @@ public class AnaAutor extends HttpServlet {
             out.println("<title>Servlet AnalisisAutor</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AnalisisAutor at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'>Servlet AnalisisAutor at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);

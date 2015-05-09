@@ -24,6 +24,8 @@ table .table1 {
     table-layout: auto;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 24px;
+    position: absolute;
+    right: 0px;
 }
 
 .table1 td {

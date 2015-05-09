@@ -41,7 +41,7 @@ public class VotarArticulo extends HttpServlet {
             out.println("<title>Servlet VotarArticulo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet VotarArticulo at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'>Servlet VotarArticulo at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);

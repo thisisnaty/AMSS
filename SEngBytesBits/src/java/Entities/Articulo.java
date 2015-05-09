@@ -67,7 +67,7 @@ public class Articulo {
     boolean crearArticulo(String id, String tit, String tem, Date fechaP, boolean pub, boolean aut, String idR, String idJ) {
          //SQL query
         String sql = "INSERT INTO Articulo (idArticulo, titulo, tema, fechaPublicacion, publicado, autorizado, idRevista, idJuez)" +
-                     "VALUES(?, ?, ?, ?, ?, ?);";
+                     "VALUES(?, ?, ?, ?, ?, ?, ? , ?);";
         try {
             //make sql script
             pst = conn.conn.prepareStatement(sql);
@@ -77,8 +77,8 @@ public class Articulo {
             pst.setDate(4, fechaP);
             pst.setBoolean(5,pub);
             pst.setBoolean(6,aut);
-            pst.setString(5,idR);
-            pst.setString(6,idJ);
+            pst.setString(7,idR);
+            pst.setString(8,idJ);
             //executes query
             pst.executeQuery();
             return true;
@@ -152,7 +152,7 @@ public class Articulo {
             String sql = "SELECT * FROM ArticuloAutor aa INNER JOIN Articulo ar \n" +
                         "   ON aa.idArticulo = ar.idArticulo JOIN Autor au\n" +
                         "   ON aa.idAutor = au.idAutor";
-            conn.stmt.executeUpdate(sql);
+            pst = conn.conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next()) {
                 while(rs.next()) {
