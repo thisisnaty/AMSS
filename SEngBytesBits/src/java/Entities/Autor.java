@@ -42,8 +42,5 @@ public class Autor {
         this.permiso = permiso;
         this.tipo = tipo;
     }
-    
-    
-    
-    
+
 }
