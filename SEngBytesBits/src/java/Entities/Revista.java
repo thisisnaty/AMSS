@@ -111,17 +111,17 @@ public class Revista {
         }
         return lklRevistas;
     }
-    
     //revista mas reciente
     //la primera
     
-    boolean masImpresiones() {
+    public boolean masImpresiones() {
         try {
             String sql = "SELECT nombre, MAX(numeroImpresiones) FROM Revista";
             pst = conn.conn.prepareStatement(sql);
             rs = pst.executeQuery();
-            nombre = rs.getString("nombre");
-            numeroImpresiones = rs.getInt("numeroImpresiones");
+            if(rs.next()) {
+                nombre = rs.getString("nombre");
+            }
             return true;
         }
         //error in database
@@ -131,20 +131,31 @@ public class Revista {
             return false;
         }
     }
-    int cantidadArticulos
-    () {
+    
+    public boolean masArticulos() {
         try {
-            String sql = "SELECT COUNT* FROM Articulo WHERE idRevista=?";
+            String sql =  "SELECT nombre FROM Revista WHERE Revista.idRevista = (SELECT cnt1.idRevista\n" +
+                    "FROM (select COUNT(*) AS total, idRevista\n" +
+                    "FROM Articulo\n" +
+                    "GROUP BY idRevista) cnt1,\n" +
+                    "(SELECT MAX(total) AS maxtotal\n" +
+                    "FROM\n" +
+                    "(SELECT COUNT(*) AS total, idRevista\n" +
+                    "FROM Articulo\n" +
+                    "GROUP BY idRevista) tb1) cnt2\n" +
+                    "WHERE cnt1.total = cnt2.maxtotal);";
             pst = conn.conn.prepareStatement(sql);
-            pst.setString(1, idRevista);
             rs = pst.executeQuery();
-            return rs.getInt(1);
+           if(rs.next()) {
+               nombre = rs.getString("nombre");
+           }
+           return true;
         }
         //error in database
         catch (SQLException ex){
             //displays error
             JOptionPane.showMessageDialog(null,ex);
-            return -1;
+            return false;
         }
     }
     

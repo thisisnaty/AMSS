@@ -31,4 +31,17 @@ public class ControlRevista {
         }
         return matRevista;
     }
+    
+    public String[][] bigData() {
+        String[][] matData = new String[2][2];
+        if (revista.masImpresiones()) {
+            matData[0][0] = revista.getNombre();
+            matData[0][1] = Integer.toString(revista.getNumeroImpresiones());
+        }
+        if (revista.masArticulos()) {
+            matData[0][0] = revista.getNombre();
+            matData[0][1] = Integer.toString(revista.getNumeroImpresiones());
+        }
+        return matData;
+    }
 }

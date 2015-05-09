@@ -57,7 +57,7 @@ public class VerRevistas extends HttpServlet {
         int cont = 0;
         String[][] matString = verRevista.verRevistas();
         int size = matString.length;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < size; i++) {
             out.println("<tr>");
             for (int j = 0; j < 5; j++) {
                 out.println("<td>");

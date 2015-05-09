@@ -5,6 +5,7 @@
  */
 package Interfaces;
 
+import Controladores.ControlRevista;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -38,14 +39,33 @@ public class AnaRevista extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            out.println("<link rel='stylesheet' href = 'main.css'>");
             out.println("<title>Servlet AnaRevista</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AnaRevista at " + request.getContextPath() + "</h1>");
+            getAnalisis(out);
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);
         }
+    }
+    
+    void getAnalisis(PrintWriter out) {
+        ControlRevista revistaAnalisis = new ControlRevista();
+        out.println("<table class = 'table1'>");
+        String[][] matString = revistaAnalisis.bigData();
+        int size = matString.length;
+        for (int i = 0; i < size; i++) {
+            out.println("<tr>");
+            for (int j = 0; j < 2; j++) {
+                out.println("<td>");
+                out.println(matString[i][j] + "<br>");
+                out.println("</td>");
+            }
+            out.println("</tr>");
+        }
+        out.println("</table>");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
