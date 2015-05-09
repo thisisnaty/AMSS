@@ -115,6 +115,8 @@ public class TemplateMenu {
             "	</body>\n" +
             "</html>");
             }
+    
+    
     public static void footer(PrintWriter out) {
         out.println("</div>");
         out.println("</div>");

@@ -9,6 +9,7 @@ import Entities.Autor;
 import Entities.Juez;
 import Entities.Revista;
 import java.sql.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,6 +31,20 @@ public class ControlArticulo {
 //      articulo = new Articulo();
 //      articulo.crearArticulo(titulo, autor);
 //    }
+    
+    public String[][] verArticulos(){
+        LinkedList<String> lklArticulos = articulo.getArticulos();
+        int size = lklArticulos.size();
+        String[][] matArticulos = new String[size][5];
+        int cont = 0;
+        for (int i = 0; i < size/6; i++) {
+            for (int j = 0; j < 6; j++){
+                matArticulos[i][j] = lklArticulos.get(cont);
+                cont++;
+            }
+        }
+        return matArticulos;
+    }
 
 
 }
