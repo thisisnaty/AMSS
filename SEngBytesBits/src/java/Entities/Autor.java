@@ -99,6 +99,4 @@ public class Autor {
         
         return autores;
     }
-    
-    
 }
