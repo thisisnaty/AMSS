@@ -46,7 +46,7 @@ public class CrearSuscriptor extends HttpServlet {
             out.println("<body>");
             out.println("<h1 style='text-align:right'>Crear Suscriptor</h1>");
             out.write("<div style='overflow:auto'>");
-            out.write("<form action='Login' method='POST'>");
+            out.write("<form action='CrearSuscriptor' method='POST'>");
             out.println("<p style='text-align:right'>Nombre Completo</p>");
             out.write("<input type='text' name='nombre' class='form-control' style='float:right'><br>");
             out.println("<p style='text-align:right'>Corporacion</p>");
@@ -84,13 +84,14 @@ public class CrearSuscriptor extends HttpServlet {
         String password = request.getParameter("password");
         String nombre = request.getParameter("nombre");
         String corp = request.getParameter("corp");
-        Date nacimiento = Date.valueOf(request.getParameter("nacimiento"));
+        //Date nacimiento = Date.valueOf(request.getParameter("nacimiento"));
+        Date nacimiento = new Date(System.currentTimeMillis());
         char sexo = request.getParameter("sexo").charAt(0);
         String direccion = request.getParameter("direccion");
         String tarjeta = request.getParameter("tarjeta");
         int clave = Integer.parseInt(request.getParameter("clave"));
-        Date expiracion = Date.valueOf(request.getParameter("expiracion"));
-        
+        //Date expiracion = Date.valueOf(request.getParameter("expiracion"));
+        Date expiracion = new Date(System.currentTimeMillis());
         //response.sendRedirect("Articulos");
         ControlSuscriptor userRegister = new ControlSuscriptor();
         

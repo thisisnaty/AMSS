@@ -189,5 +189,48 @@ public class Articulo {
         
         return articulos;
     }
+
+    public boolean register(String titulo, String tema, String autor, String revista, Date hoy) {
+        try {
+            String sql = "SELECT COUNT(idArticulo) as mycount FROM Articulo";
+            pst = conn.conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            int num = 0;
+            //encontro usuario
+            if(rs.next()){
+                num = rs.getInt("mycount");
+                num++;
+            }
+            String id = "Ar"+Integer.toString(num);
+            sql = "INSERT INTO Articulo (idArticulo, titulo, tema, fechaPublicacion, publicado, autorizado, idRevista, idJuez)"
+                    + "VALUES (?,?,?,?,?,?,?,?);";
+            pst = conn.conn.prepareStatement(sql);
+            pst.setString(1,id);
+            pst.setString(2,titulo);
+            pst.setString(3,tema);
+            pst.setDate(4, hoy);
+            pst.setInt(5,0);
+            pst.setInt(6,0);
+            pst.setString(7,revista);
+            pst.setString(8,"0");
+            //executes query
+            
+            pst.executeUpdate();
+            sql = "INSERT INTO ArticuloAutor (idArticulo, idAutor)"
+                    + "VALUES (?,?);";
+            pst = conn.conn.prepareStatement(sql);
+            pst.setString(1,id);
+            pst.setString(2,autor);
+            pst.executeUpdate();
+            pst.executeUpdate();
+            return true;
+        }
+        //error in database
+        catch (SQLException ex){
+            //displays error
+            JOptionPane.showMessageDialog(null,ex);
+            return false;
+        }
+    }
     
 }

@@ -47,5 +47,10 @@ public class ControlArticulo {
         return matArticulos;
     }
 
+    public boolean register(String titulo, String tema, String autor, String revista, Date hoy) {
+        JOptionPane.showMessageDialog(null,"Exito!");
+        return articulo.register(titulo, tema, autor, revista, hoy);
+    }
+
 
 }
