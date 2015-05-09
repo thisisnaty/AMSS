@@ -41,7 +41,7 @@ public class AnaSuscriptor extends HttpServlet {
             out.println("<title>Servlet AnaSuscriptor</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AnaSuscriptor at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'>Servlet AnaSuscriptor at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);

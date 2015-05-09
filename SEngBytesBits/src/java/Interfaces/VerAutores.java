@@ -41,7 +41,7 @@ public class VerAutores extends HttpServlet {
             out.println("<title>Servlet VerAutores</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet VerAutores at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'>Servlet VerAutores at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);

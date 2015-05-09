@@ -41,7 +41,7 @@ public class AprobarJuez extends HttpServlet {
             out.println("<title>Servlet AprobarJuez</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AprobarJuez at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'>Servlet AprobarJuez at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);

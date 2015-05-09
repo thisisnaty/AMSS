@@ -41,7 +41,7 @@ public class VerArticulos extends HttpServlet {
             out.println("<title>Servlet VerArticulos</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet VerArticulos at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:right'>Servlet VerArticulos at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
             Template.footer(out);

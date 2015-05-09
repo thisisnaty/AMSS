@@ -8,7 +8,6 @@ package Controladores;
 import Entities.Suscriptor;
 import java.sql.Date;
 import java.util.List;
-
 /**
  *
  * @author rrs94
@@ -26,6 +25,10 @@ public class ControlSuscriptor {
     public boolean login (String username, String password){
         
         return suscriptor.validateLogin(username, password);
+    }
+    public boolean register (String username, String password, String nombre, String corp, Date nacimiento, char sexo, String direccion, String tarjeta, int clave, Date expiracion){
+        Date hoy = new Date(System.currentTimeMillis());
+        return suscriptor.register(username, password, nombre, corp, nacimiento, sexo, direccion, tarjeta, clave, expiracion,hoy);
     }
 
 }
