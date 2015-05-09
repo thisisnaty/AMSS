@@ -8,6 +8,7 @@ package Controladores;
 import Entities.Suscriptor;
 import java.sql.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 /**
  *
  * @author rrs94
@@ -28,6 +29,9 @@ public class ControlSuscriptor {
     }
     public boolean register (String username, String password, String nombre, String corp, Date nacimiento, char sexo, String direccion, String tarjeta, int clave, Date expiracion){
         Date hoy = new Date(System.currentTimeMillis());
+        expiracion = new Date(System.currentTimeMillis());
+        nacimiento = new Date(System.currentTimeMillis());
+        JOptionPane.showMessageDialog(null,"hola");
         return suscriptor.register(username, password, nombre, corp, nacimiento, sexo, direccion, tarjeta, clave, expiracion,hoy);
     }
 

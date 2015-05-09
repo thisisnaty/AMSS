@@ -82,12 +82,30 @@ public class Suscriptor {
             String sql = "SELECT COUNT(idSuscriptor) as mycount FROM Suscriptor";
             pst = conn.conn.prepareStatement(sql);
             rs = pst.executeQuery();
-            int cuantosSuscriptores;
+            int cuantosSuscriptores = 0;
             //encontro usuario
             if(rs.next()){
                 cuantosSuscriptores = rs.getInt("mycount");
                 cuantosSuscriptores++;
             }
+            String id = "S"+Integer.toString(cuantosSuscriptores);
+            sql = "INSERT INTO Suscriptor (idSuscriptor, nombreCompleto, corporacion, fechaNacimiento, fechaEntrada, sexo, direccion, tarjetaCredito, clave, fechaExpiracion, username, password)"
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+            pst = conn.conn.prepareStatement(sql);
+            pst.setString(1,id);
+            pst.setString(2,nombre);
+            pst.setString(3,corp);
+            pst.setDate(4, nacimiento);
+            pst.setDate(5,hoy);
+            pst.setString(6,String.valueOf(sexo));
+            pst.setString(7,direccion);
+            pst.setString(8,tarjeta);
+            pst.setInt(9,clave);
+            pst.setDate(10,expiracion);
+            pst.setString(11,username);
+            pst.setString(12,password);
+            //executes query
+            pst.executeUpdate();
             return true;
         }
         //error in database
