@@ -87,18 +87,7 @@ public class Revista {
                 nom = rs.getString("nombre");
                 fechaPub = rs.getDate("fechaPublicacion");
                 numImp = rs.getInt("numeroImpresiones");
-                idC = "nada";
-//                sql = "SELECT idCarta FROM CartaEditor WHERE idRevista=?";
-//                pst = conn.conn.prepareStatement(sql);
-//                pst.setString(1, idR);
-//                rs2 = pst.executeQuery();
-//                
-//                if(rs2.next()){
-//                    idC = rs.getString("idCarta");
-//                }
-//                else {
-//                    idC = null;
-//                }
+                idC = rs.getString("idCarta");
                 
                 Revista revista = new Revista(nom, idR, fechaPub, numImp, idC);
                 lklRevistas.add(revista);
@@ -108,14 +97,7 @@ public class Revista {
                     nom = rs.getString("nombre");
                     fechaPub = rs.getDate("fechaPublicacion");
                     numImp = rs.getInt("numeroImpresiones");
-                    
-//                    sql = "SELECT idCarta FROM CartaEditor WHERE idRevista=?";
-//                    pst.setString(1, idR);
-//                    rs2 = pst.executeQuery();
-//                    if(rs2.next()){
-//                        idC = rs.getString("idCarta");
-//                    }
-                    idC = "nada";
+                    idCarta = rs.getString("idCarta");
                     revista = new Revista(nom, idR, fechaPub, numImp, idC);
                     lklRevistas.add(revista);
                 }
@@ -130,42 +112,30 @@ public class Revista {
         return lklRevistas;
     }
     
-    int cantidadLectores() {
+    //revista mas reciente
+    //la primera
+    
+    boolean masImpresiones() {
         try {
-            String sql = "SELECT COUNT(DISTINCT idSuscriptor) FROM Orden WHERE idRevista=?";
-            conn.stmt.executeUpdate(sql);
-            pst.setString(1, idRevista);
+            String sql = "SELECT nombre, MAX(numeroImpresiones) FROM Revista";
+            pst = conn.conn.prepareStatement(sql);
             rs = pst.executeQuery();
-            return rs.getInt(1);
+            nombre = rs.getString("nombre");
+            numeroImpresiones = rs.getInt("numeroImpresiones");
+            return true;
         }
         //error in database
         catch (SQLException ex){
             //displays error
             JOptionPane.showMessageDialog(null,ex);
-            return -1;
+            return false;
         }
     }
-    
-    int cantidadImpresiones() {
-        try {
-            String sql = "SELECT numeroImpresiones FROM Revista WHERE idRevista=?";
-            conn.stmt.executeUpdate(sql);
-            pst.setString(1, idRevista);
-            rs = pst.executeQuery();
-            return rs.getInt("numeroImpresiones");
-        }
-        //error in database
-        catch (SQLException ex){
-            //displays error
-            JOptionPane.showMessageDialog(null,ex);
-            return -1;
-        }
-    }
-    
-    int cantidadArticulos() {
+    int cantidadArticulos
+    () {
         try {
             String sql = "SELECT COUNT* FROM Articulo WHERE idRevista=?";
-            conn.stmt.executeUpdate(sql);
+            pst = conn.conn.prepareStatement(sql);
             pst.setString(1, idRevista);
             rs = pst.executeQuery();
             return rs.getInt(1);
@@ -190,10 +160,5 @@ public class Revista {
          this.idCarta };
         return arr;
     }
-        /*this.nombre = null;
-        this.idRevista = null;
-        this.fechaPublicacion = null;
-        this.numeroImpresiones = 0;
-        this.idCarta = null;*/
 }
 
