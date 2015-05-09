@@ -158,11 +158,7 @@ public class Revista {
             return false;
         }
     }
-    
-    //wat is dis
-    void editorEnJefe() {
-        
-    }
+
     
     public String[] arrString() {
         int temp = this.numeroImpresiones;
