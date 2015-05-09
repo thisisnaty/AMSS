@@ -31,7 +31,7 @@ public class ControlSuscriptor {
         Date hoy = new Date(System.currentTimeMillis());
         expiracion = new Date(System.currentTimeMillis());
         nacimiento = new Date(System.currentTimeMillis());
-        JOptionPane.showMessageDialog(null,"hola");
+        JOptionPane.showMessageDialog(null,"Exito!");
         return suscriptor.register(username, password, nombre, corp, nacimiento, sexo, direccion, tarjeta, clave, expiracion,hoy);
     }
 

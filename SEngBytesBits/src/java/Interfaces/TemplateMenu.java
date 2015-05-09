@@ -72,7 +72,7 @@ public class TemplateMenu {
         "			<li><a href = \"BuscarAutor\" STYLE= \"text-decoration:none\">Buscar Autor</a></li>\n" +
         "                       <li><a href = \"BuscarArticulo\" STYLE= \"text-decoration:none\">Buscar Articulo</a></li>\n" +
         "			<li><a href = \"CrearSuscriptor\" STYLE= \"text-decoration:none\">Crear Suscriptor</a></li>\n" +
-        "                       <li><a href = \"CrearCarta\" STYLE= \"text-decoration:none\">Crear Carta Editor</a></li>\n" +
+        "                       <li><a href = \"CrearCarta\" STYLE= \"text-decoration:none\">Crear Articulo</a></li>\n" +
         "			<li><a href = \"VotarArticulo\" STYLE= \"text-decoration:none\">Votar por Articulo</a></li>\n" +
         "			<li><a href = \"AprobarJuez\" STYLE= \"text-decoration:none\">Aprobar Juez</a></li>\n" +
         "			<li><a href = \"HacerPedido\" STYLE= \"text-decoration:none\">Hacer Pedido</a></li>\n" +
