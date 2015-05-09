@@ -133,7 +133,7 @@ public class Articulo {
             String nombre = rs.getString("nombre");
             Date publicacion = rs.getDate("fechaPublicacion");
             int numImpresiones = rs.getInt("numeroImpresiones");
-            revistaPertenece = new Revista(nombre, idRevista, publicacion, numImpresiones);
+            revistaPertenece = new Revista(nombre, idRevista, publicacion, numImpresiones, "nada");
             return revistaPertenece;
         }
         //error in database

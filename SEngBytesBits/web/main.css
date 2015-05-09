@@ -7,18 +7,28 @@ and open the template in the editor.
     Created on : May 4, 2015, 8:17:49 PM
     Author     : nataliagarcia
 */
-.body {
-	background-image: url(back1.jpg);
-	background-repeat: no-repeat;
+body {
+    background-image: url(back1.jpg);
+    background-size: cover;
 }
 
 .wrapper {
-    
     text-align: center;
     vertical-align: middle;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-weight: lighter;
     font-size: 4px;
-    
+}
+
+table .table1 {
+    table-layout: auto;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 24px;
+}
+
+.table1 td {
+    padding: 20px;
+    color: #000000;
+    background-color: rgba(225, 225, 225, 0.8);
 }
 

@@ -65,7 +65,8 @@ public class CartaEditor {
             rs = pst.executeQuery();
             if(rs.next()){
             //checks all responses
-            Revista aux = new Revista(rs.getString("nombre"), rs.getString("idRevista"), rs.getDate("fechaPublicacion"), rs.getInt("numeroImpresiones"));
+            Revista aux = new Revista(rs.getString("nombre"), rs.getString("idRevista"), 
+                    rs.getDate("fechaPublicacion"), rs.getInt("numeroImpresiones"), idCarta);
                 //String nombre, String idRevista, Date fechaPublicacion, int numeroImpresiones, 
             return aux;
             }
