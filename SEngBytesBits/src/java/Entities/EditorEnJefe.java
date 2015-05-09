@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import javax.swing.JOptionPane;
@@ -51,124 +52,8 @@ public class EditorEnJefe {
         
     }
     
-    List<CartaEditor> cartasEscritas() {
-        List<CartaEditor> cartas = new List<CartaEditor>() {
-
-            @Override
-            public int size() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean isEmpty() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public Iterator<CartaEditor> iterator() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public Object[] toArray() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public <T> T[] toArray(T[] a) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean add(CartaEditor e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> c) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends CartaEditor> c) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean addAll(int index, Collection<? extends CartaEditor> c) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> c) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> c) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void clear() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public CartaEditor get(int index) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public CartaEditor set(int index, CartaEditor element) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void add(int index, CartaEditor element) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public CartaEditor remove(int index) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public int indexOf(Object o) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public int lastIndexOf(Object o) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public ListIterator<CartaEditor> listIterator() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public ListIterator<CartaEditor> listIterator(int index) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public List<CartaEditor> subList(int fromIndex, int toIndex) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        };
+    public LinkedList<CartaEditor> cartasEscritas() {
+    LinkedList<CartaEditor> cartas = new LinkedList();
         try {
             String sql = "SELECT * FROM CartaEditor WHERE idEditor=?";
             //make sql script
@@ -179,123 +64,7 @@ public class EditorEnJefe {
             //checks all responses
             if(rs.next()){
                 //reset categories array
-                cartas = new List<CartaEditor>() {
-
-                    @Override
-                    public int size() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean isEmpty() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean contains(Object o) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public Iterator<CartaEditor> iterator() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public Object[] toArray() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public <T> T[] toArray(T[] a) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean add(CartaEditor e) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean remove(Object o) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean containsAll(Collection<?> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean addAll(Collection<? extends CartaEditor> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean addAll(int index, Collection<? extends CartaEditor> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean removeAll(Collection<?> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean retainAll(Collection<?> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public void clear() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public CartaEditor get(int index) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public CartaEditor set(int index, CartaEditor element) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public void add(int index, CartaEditor element) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public CartaEditor remove(int index) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public int indexOf(Object o) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public int lastIndexOf(Object o) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public ListIterator<CartaEditor> listIterator() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public ListIterator<CartaEditor> listIterator(int index) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public List<CartaEditor> subList(int fromIndex, int toIndex) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                };
+                cartas = new LinkedList<CartaEditor>();
                 cartas.add(0, new CartaEditor());
                 //adds first category
                 CartaEditor aux = new CartaEditor(rs.getString("idCarta"), rs.getString("titulo"),
@@ -315,123 +84,7 @@ public class EditorEnJefe {
             }
             //error in finding database
             else {
-                cartas = new List<CartaEditor>() {
-
-                    @Override
-                    public int size() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean isEmpty() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean contains(Object o) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public Iterator<CartaEditor> iterator() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public Object[] toArray() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public <T> T[] toArray(T[] a) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean add(CartaEditor e) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean remove(Object o) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean containsAll(Collection<?> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean addAll(Collection<? extends CartaEditor> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean addAll(int index, Collection<? extends CartaEditor> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean removeAll(Collection<?> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean retainAll(Collection<?> c) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public void clear() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public CartaEditor get(int index) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public CartaEditor set(int index, CartaEditor element) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public void add(int index, CartaEditor element) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public CartaEditor remove(int index) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public int indexOf(Object o) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public int lastIndexOf(Object o) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public ListIterator<CartaEditor> listIterator() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public ListIterator<CartaEditor> listIterator(int index) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public List<CartaEditor> subList(int fromIndex, int toIndex) {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                };
+                cartas = new LinkedList<CartaEditor>();
                 cartas.add(0, new CartaEditor());
             }
         }
@@ -440,6 +93,7 @@ public class EditorEnJefe {
             //displays error
             JOptionPane.showMessageDialog(null,ex);
         }
+        
         return cartas;
     }
     

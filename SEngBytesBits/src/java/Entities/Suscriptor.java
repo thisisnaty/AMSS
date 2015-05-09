@@ -4,14 +4,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 
 /**
  *
@@ -30,7 +31,7 @@ public class Suscriptor {
     private String direccion;
     private String tarjetaCredito;
     private int clave;
-     /*SQL connection global variables*/
+    /*SQL connection global variables*/
     //connection variable
     private final transient Conexion conn;
     //prepare statement for query
@@ -41,7 +42,7 @@ public class Suscriptor {
     public Suscriptor (Conexion conn) {
         this.conn = conn;
     }
-
+    
     public boolean validateLogin(String u, String p) {
         try {
             String sql = "SELECT * FROM Suscriptor WHERE username=? AND password=?";
@@ -76,7 +77,7 @@ public class Suscriptor {
             return false;
         }
     }
-
+    
     public boolean register(String username, String password, String nombre, String corp, java.sql.Date nacimiento, char sexo, String direccion, String tarjeta, int clave, java.sql.Date expiracion, java.sql.Date hoy) {
         try {
             String sql = "SELECT COUNT(idSuscriptor) as mycount FROM Suscriptor";
@@ -114,5 +115,50 @@ public class Suscriptor {
             JOptionPane.showMessageDialog(null,ex);
             return false;
         }
+    }
+    
+    public LinkedList<String> getSuscriptores() {
+        LinkedList<String> suscriptores = new LinkedList();
+        try {
+            String sql = "SELECT * FROM Suscriptor";
+            pst = conn.conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next()) {
+                suscriptores.add(rs.getString("idSuscriptor"));
+                suscriptores.add(rs.getString("nombreCompleto"));
+                suscriptores.add(rs.getString("username"));
+                rs.getString("password");
+                suscriptores.add(rs.getDate("fechaNacimiento").toString());
+                suscriptores.add(rs.getDate("fechaEntrada").toString());
+                suscriptores.add(rs.getDate("fechaExpiracion").toString());
+                suscriptores.add(rs.getString("sexo"));
+                suscriptores.add(rs.getString("corporacion"));
+                suscriptores.add(rs.getString("direccion"));
+                suscriptores.add(rs.getString("tarjetaCredito"));
+                suscriptores.add(Integer.toString(rs.getInt("clave")));
+                while(rs.next()) {
+                    suscriptores.add(rs.getString("idSuscriptor"));
+                    suscriptores.add(rs.getString("nombreCompleto"));
+                    suscriptores.add(rs.getString("username"));
+                    rs.getString("password");
+                    suscriptores.add(rs.getDate("fechaNacimiento").toString());
+                    suscriptores.add(rs.getDate("fechaEntrada").toString());
+                    suscriptores.add(rs.getDate("fechaExpiracion").toString());
+                    suscriptores.add(rs.getString("sexo"));
+                    suscriptores.add(rs.getString("corporacion"));
+                    suscriptores.add(rs.getString("direccion"));
+                    suscriptores.add(rs.getString("tarjetaCredito"));
+                    suscriptores.add(Integer.toString(rs.getInt("clave")));
+                }
+            }
+        }
+        
+        //error in database
+        catch (SQLException ex){
+            //displays error
+            JOptionPane.showMessageDialog(null,ex);
+            suscriptores.add("");
+        }
+        return suscriptores;
     }
 }
